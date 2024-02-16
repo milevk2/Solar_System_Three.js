@@ -15,7 +15,6 @@ https://www.youtube.com/watch?v=l7K9AMnesJQ
 
 
 const fontLoader = new FontLoader();
-
 export async function attach_name_labels(planets) {
 
     return new Promise((resolve, reject) => {
