@@ -6,4 +6,6 @@ const pause_ms = (ms) => {
     });
 }
 
-export default pause_ms;
+let pause = {value: false}
+
+export  {pause_ms, pause};
