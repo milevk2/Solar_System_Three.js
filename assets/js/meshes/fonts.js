@@ -18,41 +18,57 @@ const fontLoader = new FontLoader();
 
 export async function attach_name_labels(planets) {
 
-    for (let planet of planets) {
+    return new Promise((resolve, reject) => {
 
-        fontLoader.load('node_modules/three/examples/fonts/droid/droid_serif_regular.typeface.json', function (font) {
+        const promises = [];
+        for (let planet of planets) {
 
-            const geometry = new TextGeometry(planet['name'], {
-                font: font,
-                size: 4,
-                height: 1, // Height of the text (controls thickness) - asked GPT for how to make text mesh appear thinner
-                curveSegments: 12, // Number of points on the curves
-                bevelEnabled: false // Disable bevel for a thinner look
-            });
+            const fontPromise = new Promise((resolveFont, rejectFont) => {
 
-            const material = new MeshBasicMaterial({
-                
-                color: 0xffffff,
-                visible: false // the text will be visible only on raycasting
-            });
-            const nameMesh = new Mesh(geometry, material);
-            nameMesh.position.set(-5, 10, 0);
-            nameMesh.layers.set(1);
-            nameMesh.isNameLabel = true; // textlabels are easier to be omitted in the raycaster logic if we have this boolean flag.
+                fontLoader.load('node_modules/three/examples/fonts/droid/droid_serif_regular.typeface.json', function (font) {
 
-            planet.nameMesh = nameMesh; //adding the mesh as a property to the planet object so I can customize the animation
-            planet.mesh[nameMesh.uuid] = nameMesh;  //added the nameMesh UUID reference to the planet mesh
-            
-            planet.mesh.name_label_id = nameMesh.uuid; //adding the uuid of the labelmesh, so it can be accessed by the raycaster logic
+                    const geometry = new TextGeometry(planet['name'], {
+                        font: font,
+                        size: 4,
+                        height: 1, // Height of the text (controls thickness) - asked GPT for how to make text mesh appear thinner
+                        curveSegments: 12, // Number of points on the curves
+                        bevelEnabled: false // Disable bevel for a thinner look
+                    });
 
-            planet.mesh.add(nameMesh); 
-        }, function (e) {
+                    const material = new MeshBasicMaterial({
 
-            console.log('Still loading!');
+                        color: 0xffffff,
 
-        }, (err) => console.log('Error with loading the font!'));
-    }
+                    });
+                    const nameMesh = new Mesh(geometry, material);
+                    nameMesh.position.set(-5, 8, 0);
+                    nameMesh.layers.set(2);
+                    planet.nameMesh = nameMesh; //adding the mesh as a property to the planet object so I can customize the animation
+                    planet.mesh[nameMesh.uuid] = nameMesh;  //added the nameMesh UUID reference to the planet mesh so the nameMesh could be accessed by its UUID
+                    planet.mesh.name_label_id = nameMesh.uuid; //adding the uuid of the labelmesh, so it can be accessed by the raycaster logic
+                    planet.mesh.add(nameMesh);
+                    console.log('Font loaded!');
+                    resolveFont();
+                }, function (e) {
+
+                    rejectFont();
+                    console.log('Font still loading!');
+
+                })
+            })
+            promises.push(fontPromise);
+        }
+
+        Promise.allSettled(promises).then(() => {
+
+            resolve(true);
+
+        }).catch((error) => {
+            reject(error);
+        });
+    })
 }
+
 
 
 
