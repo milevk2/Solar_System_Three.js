@@ -1,5 +1,6 @@
 import { BackSide, MeshBasicMaterial, SphereGeometry } from "three";
 import { SpaceObject } from "../SpaceObjectBuilder.js";
+import { rotationSelfConfig } from "../animation/rotationMultiplier.js";
 
 
 const galaxy = new SpaceObject(
@@ -13,6 +14,6 @@ const galaxy = new SpaceObject(
     true,
     [0, 0, 0],
     1,
-    0.5)
+    50)
     
 export default galaxy;
