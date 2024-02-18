@@ -50,15 +50,15 @@ class RingPlanet extends OrbitingPlanet {
     constructor(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self, rotation_pivot) {
         super(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self, rotation_pivot)
 
-        this.ringGeo = new RingGeometry(17, 27, 32, 1);
-        this.ringMaterial = new MeshLambertMaterial({
+        this.ringMesh = new Mesh(
+        new RingGeometry(17, 27, 32, 1), 
+        new MeshLambertMaterial({
 
             map: textureLoader.load(textureRoot + 'saturnRing.png'),
             side: DoubleSide,
 
-        })
-
-        this.ringMesh = new Mesh(this.ringGeo, this.ringMaterial);
+        }));
+      
         this.ringMesh.isRing = true;
         this.ringMesh.layers.set(1);
         this.ringMesh.rotateX(20);
