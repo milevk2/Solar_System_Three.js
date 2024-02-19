@@ -1,5 +1,5 @@
 import { Raycaster, Vector2 } from "three";
-import { camera } from "./camera.js";
+import { camera } from "./camera/camera.js";
 import scene from "./scene.js";
 import { moon } from "./meshes/planets.js";
 import sun from "./meshes/sun.js";
@@ -26,14 +26,15 @@ function onPointerMove(e) {
 
 }
 
-window.addEventListener('pointermove', onPointerMove);
+document.querySelector('.webgl').addEventListener('pointermove', onPointerMove);
 
 
 function rayCast() {
     
     raycaster.setFromCamera(pointer, camera);
-    const intersected = raycaster.intersectObjects(scene.children)[0].object;
+    const intersected = raycaster.intersectObjects(scene.children)[0]? raycaster.intersectObjects(scene.children)[0].object : false; // making sure the first intersected entity has an object because we need it in applyVisualEffect, otherwise everything explodes
 
+    if (intersected == false) return;
     if (intersected.uuid == moon.mesh.uuid) return;
     if (intersected.uuid == sun.mesh.uuid) return;
     if (intersected.uuid == galaxy.mesh.uuid) return;
