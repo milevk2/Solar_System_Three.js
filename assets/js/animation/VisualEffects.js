@@ -28,7 +28,7 @@ function resetVisualEffects(spaceObjectsArray) {
     }
 }
 
-function lookAtCamera(planets) {
+function pointNameLabelToCamera(planets) { 
 
     if (showNameLabels.show == false) return
 
@@ -37,4 +37,4 @@ function lookAtCamera(planets) {
     }
 }
 
-export { applyVisualEffect, resetVisualEffects, lookAtCamera, showNameLabels }
+export { applyVisualEffect, resetVisualEffects, pointNameLabelToCamera, showNameLabels }
