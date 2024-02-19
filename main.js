@@ -6,7 +6,7 @@ import { pause, pause_ms } from "./assets/js/utility/pause_ms.js";
 import { camera, cameraMainFunction, cameraAutoRotate} from "./assets/js/camera/camera.js"
 import planetRenderer from "./assets/js/renderers/renderer.js";
 import { planets, moon, nameLabelsLoaded } from "./assets/js/meshes/planets.js";
-import { lookAtCamera, resetVisualEffects } from "./assets/js/animation/VisualEffects.js";
+import { pointNameLabelToCamera, resetVisualEffects } from "./assets/js/animation/VisualEffects.js";
 import { rotateSelf, rotatePivot } from "./assets/js/animation/rotation.js";
 import { Clock } from "three";
 import { cameraControls } from "./assets/js/camera/controls.js";
@@ -63,7 +63,7 @@ const animate = () => {
         rotateSelf([galaxy, moon, sun, ...planets], deltaTime);
         rotatePivot([moon, ...planets], deltaTime);
         resetVisualEffects([moon, ...planets]);
-        lookAtCamera([...planets]);     //it is the planets nameLabels we are making look at the camera;
+        pointNameLabelToCamera([...planets]);     //it is the planets nameLabels we are making look at the camera;
         documentDeltaY = 0;             //zeroing out the deltaY, otherwise the cameraMainFunction will continue affecting the camera position
         isWheeLing = false;             //just like the below comment - I want to be sure there won't be any side effects;
     }
