@@ -29,6 +29,7 @@ class SpaceObject {
         this.mesh.position.set(...positionArr);
         this.mesh.layers.set(layer);
         this.rotation_self = rotation_self / 1000; //rotation around self
+        this.savedRotation_self = 0; //this will be needed for the cameraMainFunction, because we will be changing the rotation speed of the planes (as the camera will be attached to it)
     }
 }
 
@@ -68,11 +69,15 @@ class RingPlanet extends OrbitingPlanet {
 }
 
 class PlanetWithSatellite extends OrbitingPlanet {
-    constructor() {
+    constructor(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self, rotation_pivot, satellite) {
+        super(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self, rotation_pivot)
 
-        //to be done
+        satellite.pivot.position.set(0, 0, 0);
+        satellite.mesh.position.set(20, 0, 0);
+        this.mesh.add(satellite.pivot);
     }
-
 }
 
-export { SpaceObject, OrbitingPlanet, RingPlanet }
+
+
+export { SpaceObject, OrbitingPlanet, RingPlanet, PlanetWithSatellite }
