@@ -6,9 +6,8 @@
     box-sizing: border-box;
 }
 
-
 body {
-    height: 8000px;
+    height: 15000px;
     position: relative;
 }
 
@@ -22,45 +21,4 @@ body {
     top: 0;
     left: 0;
     z-index: 0;
-}
-
-.arrow {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: azure;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    z-index: 10;
-    opacity: 50%;
-    transition: 0.5s ease-in;
-}
-
-.arrow:hover {
-    transform: scale(1.2);
-   opacity: 80%
-}
-.up {
-    top:0;
-    right: 50%;
-}
-
-.down {
-    bottom:0;
-    right: 50%;
-}
-
-.left {
-
-    bottom:50%;
-    left: 0;
-
-}
-
-.right {
-
-    bottom:50%;
-    right: 0;
 }
