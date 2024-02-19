@@ -44,6 +44,7 @@ class OrbitingPlanet extends SpaceObject {
         this.pivot.layers.set(1);
         this.pivot.add(this.mesh);
         this.rotation_pivot = rotation_pivot / 1000; //rotation around the pivot
+        this.name_label_id = null // this will be populated with UUID of the font mesh when the font mesh is created in attach_name_labels functionality.
     }
 }
 
