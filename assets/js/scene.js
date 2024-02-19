@@ -1,8 +1,8 @@
-import { AmbientLight, Object3D, PointLight, Scene } from "three";
+import { AmbientLight, PointLight, Scene } from "three";
 import { planets} from "./meshes/planets.js";
 import sun from './meshes/sun.js'
 import galaxy from "./meshes/galaxy.js";
-import {camera, cameraPivot} from "./camera.js";
+import {camera} from "./camera/camera.js";
 
 //-------------------SCENE PREPARATION---------------
 const scene = new Scene();
@@ -21,7 +21,6 @@ scene.add(ambientLight);
 scene.add(pointLight);
 scene.add(galaxy.mesh);
 scene.add(sun.mesh);
-pointLight.add(cameraPivot);
 
 //I asked chat gpt whether there is a direction vector for the position the camera is looking at so I could calculate the angle after camera position change. 
 //He showed me the below amazing function:
