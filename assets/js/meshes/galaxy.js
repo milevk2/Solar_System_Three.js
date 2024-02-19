@@ -7,7 +7,7 @@ const galaxy = new SpaceObject(
 
     'Galaxy',
     SphereGeometry,
-    [500, 15, 15],
+    [1000, 7, 7],
     MeshBasicMaterial,
     'galaxy1.png',
     BackSide,
