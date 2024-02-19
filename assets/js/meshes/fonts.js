@@ -42,8 +42,9 @@ export async function attach_name_labels(planets) {
                     const nameMesh = new Mesh(geometry, material);
                     nameMesh.position.set(-5, 8, 0);
                     nameMesh.layers.set(2);
+                    nameMesh['isLabel'] = true;
                     planet.nameMesh = nameMesh; //adding the mesh as a property to the planet object so I can customize the animation
-                    planet.mesh[nameMesh.uuid] = nameMesh;  //added the nameMesh UUID reference to the planet mesh so the nameMesh could be accessed by its UUID
+                    planet.mesh[nameMesh.uuid] = nameMesh;  //added the nameMesh UUID reference to the planet mesh so the nameMesh could be accessed by its UUID because raycaster intercepts planets related to labels, not labels
                     planet.mesh.name_label_id = nameMesh.uuid; //adding the uuid of the labelmesh, so it can be accessed by the raycaster logic
                     planet.mesh.add(nameMesh);
                     console.log('Font loaded!');
