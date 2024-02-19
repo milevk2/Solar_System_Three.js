@@ -9,7 +9,7 @@ function initiateControls() {
 
     cameraControls = new OrbitControls(camera, planetRenderer.domElement);
     cameraControls.maxZoom = 800;
-    cameraControls.autoRotate = true;
+    cameraControls.autoRotate = false; // not sure whether this will be true in the final project as it is harder to notice the planets rotating around the sun
     cameraControls.autoRotateSpeed = 0.5;
     cameraControls.maxDistance = 800;
     cameraControls.minDistance = 100;
