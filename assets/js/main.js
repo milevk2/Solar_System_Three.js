@@ -1,16 +1,17 @@
-import scene from "./assets/js/scene.js";
-import sun from "./assets/js/meshes/sun.js";
-import galaxy from "./assets/js/meshes/galaxy.js";
-import rayCast from "./assets/js/rayCast.js";
-import { pause } from "./assets/js/utility/pause_ms.js";
-import { camera, cameraMainFunction, cameraAutoRotate} from "./assets/js/camera/camera.js"
-import planetRenderer from "./assets/js/renderers/renderer.js";
-import { planets, moon, nameLabelsLoaded } from "./assets/js/meshes/planets.js";
-import { pointNameLabelToCamera, resetVisualEffects } from "./assets/js/animation/VisualEffects.js";
-import { rotateSelf, rotatePivot } from "./assets/js/animation/rotation.js";
+
+import scene from "./scene.js";
+import sun from "./meshes/sun.js";
+import galaxy from "./meshes/galaxy.js";
+import rayCast from "./rayCast.js";
+import { pause } from "./utility/pause_ms.js";
+import { camera, cameraMainFunction, cameraAutoRotate} from "./camera/camera.js"
+import planetRenderer from "./renderers/renderer.js";
+import { planets, moon, nameLabelsLoaded } from "./meshes/planets.js";
+import { pointNameLabelToCamera, resetVisualEffects } from "./animation/VisualEffects.js";
+import { rotateSelf, rotatePivot } from "./animation/rotation.js";
 import { Clock } from "three";
-import { cameraControls } from "./assets/js/camera/controls.js";
-import { canvas } from "./assets/js/event-listeners/listeners.js";
+import { cameraControls } from "./camera/controls.js";
+import { canvas } from "./event-listeners/listeners.js";
 
 
 let isWheeLing = false;

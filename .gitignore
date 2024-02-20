@@ -2,3 +2,5 @@ node_modules
 public
 firebase.json
 .firebaserc
+.firebase
+.vscode
