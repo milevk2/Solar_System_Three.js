@@ -2,7 +2,7 @@ import scene from "./assets/js/scene.js";
 import sun from "./assets/js/meshes/sun.js";
 import galaxy from "./assets/js/meshes/galaxy.js";
 import rayCast from "./assets/js/rayCast.js";
-import { pause, pause_ms } from "./assets/js/utility/pause_ms.js";
+import { pause } from "./assets/js/utility/pause_ms.js";
 import { camera, cameraMainFunction, cameraAutoRotate} from "./assets/js/camera/camera.js"
 import planetRenderer from "./assets/js/renderers/renderer.js";
 import { planets, moon, nameLabelsLoaded } from "./assets/js/meshes/planets.js";
@@ -10,22 +10,7 @@ import { pointNameLabelToCamera, resetVisualEffects } from "./assets/js/animatio
 import { rotateSelf, rotatePivot } from "./assets/js/animation/rotation.js";
 import { Clock } from "three";
 import { cameraControls } from "./assets/js/camera/controls.js";
-//import cameraControls from "./assets/js/camera/controls.js";
-
-const canvas = document.querySelector('.webgl')
-
-//pause logic on scene click:
-canvas.addEventListener("mousedown", (e) => pause.value = true);
-canvas.addEventListener("mouseup", (e) => pause.value = false);
-
-window.addEventListener(
-    "resize",
-    () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        planetRenderer.setSize(window.innerWidth, window.innerHeight);
-    },
-);
+import { canvas } from "./assets/js/event-listeners/listeners.js";
 
 
 let isWheeLing = false;
