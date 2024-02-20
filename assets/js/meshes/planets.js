@@ -1,5 +1,5 @@
-import { FrontSide, IcosahedronGeometry, MeshLambertMaterial } from "three";
-import { OrbitingPlanet, PlanetWithSatellite, RingPlanet } from "../SpaceObjectBuilder.js";
+import { FrontSide, IcosahedronGeometry, MeshLambertMaterial, MeshStandardMaterial } from "three";
+import { IcePlanet, OrbitingPlanet, PlanetWithSatellite, RingPlanet } from "../SpaceObjectBuilder.js";
 import { attach_name_labels } from "./fonts.js";
 import { rotationPivotConfig, rotationSelfConfig } from "../animation/rotationMultiplier.js";
 
@@ -13,8 +13,8 @@ const earth = new PlanetWithSatellite('Earth', IcosahedronGeometry, [8, 4], Mesh
 const mars = new OrbitingPlanet('Mars', IcosahedronGeometry, [7, 4], MeshLambertMaterial, 'mars.png', FrontSide, false, [175, 10, 175], 1, 2.5 * rotationSelfConfig, 100 * rotationPivotConfig);
 const jupiter = new OrbitingPlanet('Jupiter', IcosahedronGeometry, [11, 4], MeshLambertMaterial, 'jupiter.png', FrontSide, false, [225, 20, 225], 1, 2.5 * rotationSelfConfig, 80 * rotationPivotConfig);
 const saturn = new RingPlanet('Saturn', IcosahedronGeometry, [10, 4], MeshLambertMaterial, 'saturn.png', FrontSide, false, [350, 20, 300], 1, 0 * rotationSelfConfig, 60 * rotationPivotConfig);
-const uranus = new OrbitingPlanet('Uranus', IcosahedronGeometry, [6, 4], MeshLambertMaterial, 'uranus.png', FrontSide, false, [10, 40, 350], 1, 2.5 * rotationSelfConfig, 30 * rotationPivotConfig);
-const neptune = new OrbitingPlanet('Neptune', IcosahedronGeometry, [7, 4], MeshLambertMaterial, 'neptune.png', FrontSide, false, [25, -10, 385], 1, 2.5 * rotationSelfConfig, 15 * rotationPivotConfig);
+const uranus = new IcePlanet('Uranus', IcosahedronGeometry, [6, 8], MeshStandardMaterial, 'uranus.png', FrontSide, false, [10, 40, 350], 1, 2.5 * rotationSelfConfig, 30 * rotationPivotConfig);
+const neptune = new IcePlanet('Neptune', IcosahedronGeometry, [7, 8], MeshStandardMaterial, 'neptune.png', FrontSide, false, [25, -10, 385], 1, 2.5 * rotationSelfConfig, 15 * rotationPivotConfig);
 const pluto = new OrbitingPlanet('Pluto', IcosahedronGeometry, [5, 4], MeshLambertMaterial, 'pluto.png', FrontSide, false, [30, -5, 405], 1, 2.5 * rotationSelfConfig, 5 * rotationPivotConfig);
 
 //Moon is bound to Earth:
