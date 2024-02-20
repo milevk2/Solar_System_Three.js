@@ -135,11 +135,18 @@ h2{
 }
 
 #aboutInfo {
-   
+    position: fixed;
+    line-height: 1.1;
     width: 50vw;
     height: 10px;
-    left:30%;
-    top: 0;
+    left:25%;
+    top: 10%
+}
+
+#aboutInfo h2 {
+
+    font-size: 1.5em;
+
 }
 
 #aboutInfo  a {
