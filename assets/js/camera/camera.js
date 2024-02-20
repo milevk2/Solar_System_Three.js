@@ -154,6 +154,7 @@ function cameraMainFunction(deltaTime, documentDeltaY) {
             rotatePivotOnScroll(saturn.mesh, documentDeltaY, deltaTime);
             return
         }
+        camera.position.z = 100;
         animateText('saturn', previousPlanetName);
         updatePivot(saturn);
     }
