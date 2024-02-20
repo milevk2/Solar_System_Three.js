@@ -12,7 +12,7 @@ const textureLoader = new TextureLoader();
 */
 
 class SpaceObject {
-    constructor(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self ) {
+    constructor(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self) {
 
         //creating the mesh:
         this.name = name;
@@ -22,9 +22,8 @@ class SpaceObject {
                 map: textureLoader.load(textureRoot + texturePath),
                 side: side,
                 transparent: transparent,
-                emissiveIntensity: 0.1
+                emissiveIntensity: 0.1,
             }));
-
 
         this.mesh.position.set(...positionArr);
         this.mesh.layers.set(layer);
@@ -38,7 +37,6 @@ class OrbitingPlanet extends SpaceObject {
     constructor(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self, rotation_pivot) {
         super(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self)
 
-
         //creating the pivot the space object will rotate around:
         this.pivot = new Object3D();
         this.pivot.layers.set(1);
@@ -48,24 +46,34 @@ class OrbitingPlanet extends SpaceObject {
     }
 }
 
+class IcePlanet extends OrbitingPlanet {
+
+    constructor(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self, rotation_pivot) {
+        super(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self, rotation_pivot)
+
+        this.mesh.material.roughness = 0;
+        this.mesh.material.metalness = 0.4;
+    }
+}
+
 class RingPlanet extends OrbitingPlanet {
     constructor(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self, rotation_pivot) {
         super(name, Geometry, geometryParamsArr, Material, texturePath, side, transparent, positionArr, layer, rotation_self, rotation_pivot)
 
         this.ringMesh = new Mesh(
-        new RingGeometry(17, 27, 32, 1), 
-        new MeshLambertMaterial({
+            new RingGeometry(17, 27, 32, 1),
+            new MeshLambertMaterial({
 
-            map: textureLoader.load(textureRoot + 'saturnRing.png'),
-            side: DoubleSide,
+                map: textureLoader.load(textureRoot + 'saturnRing.png'),
+                side: DoubleSide,
 
-        }));
-      
+            }));
+
         this.ringMesh.isRing = true;
         this.ringMesh.layers.set(1);
         this.ringMesh.rotateX(20);
         this.mesh.add(this.ringMesh);
-        
+
     }
 }
 
@@ -75,10 +83,12 @@ class PlanetWithSatellite extends OrbitingPlanet {
 
         satellite.pivot.position.set(0, 0, 0);
         satellite.mesh.position.set(20, 0, 0);
+        satellite.mesh.castShadow = true;
         this.mesh.add(satellite.pivot);
+        this.mesh.receiveShadow = true;
     }
 }
 
 
 
-export { SpaceObject, OrbitingPlanet, RingPlanet, PlanetWithSatellite }
+export { SpaceObject, OrbitingPlanet, RingPlanet, PlanetWithSatellite, IcePlanet }
