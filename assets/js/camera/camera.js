@@ -23,10 +23,7 @@ camera.position.x = 0;
 camera.position.y = 0;
 camera.layers.set(1);
 
-//cameraPivot.pivotName = 'pivotName'
-
 /*-------------------------CAMERA POSITION FUNCTIONALITY---------------------*/
-
 
 let directionY = -0.1;
 //changes the direction of the rotation of the camera around it's pivot Y axis on every 10 secs.
@@ -41,6 +38,7 @@ function adjustRotationY() {
 }
 setInterval(adjustRotationY, 10 * 1000);
 
+let cameraPivot = sun;
 
 function cameraAutoRotate(deltaTime) {
 
@@ -49,8 +47,6 @@ function cameraAutoRotate(deltaTime) {
     camera.updateProjectionMatrix();
 }
 
-
-let cameraPivot = sun;
 let previousCameraPivot = null;
 let previousPlanetName = null;
 
@@ -174,7 +170,6 @@ function cameraMainFunction(deltaTime, documentDeltaY) {
 
         if (cameraControls !== null) return;
         onCameraInitialize();
-
     }
 }
 
