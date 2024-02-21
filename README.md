@@ -56,11 +56,11 @@ To get started with this project, follow these steps:
         - `styles.css`
 
       - **js/**
-            - **animation/**
-                - `cssTextAnimate.css`
-                - `rotation.js`
-                - `rotationMultiplier.js`
-                - `VisualEffects.js`
+        - **animation/**
+            - `cssTextAnimate.css`
+            - `rotation.js`
+            - `rotationMultiplier.js`
+            - `VisualEffects.js`
             - **camera/**
                 - `camera.js`
                 - `controls.js`
