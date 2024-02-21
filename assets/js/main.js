@@ -4,7 +4,7 @@ import sun from "./meshes/sun.js";
 import galaxy from "./meshes/galaxy.js";
 import rayCast from "./rayCast.js";
 import { pause } from "./utility/pause_ms.js";
-import { camera, cameraMainFunction, cameraAutoRotate} from "./camera/camera.js"
+import { camera, cameraMainFunction, cameraAutoRotate } from "./camera/camera.js"
 import planetRenderer from "./renderers/renderer.js";
 import { planets, moon, nameLabelsLoaded } from "./meshes/planets.js";
 import { pointNameLabelToCamera, resetVisualEffects } from "./animation/VisualEffects.js";
@@ -13,15 +13,29 @@ import { Clock } from "three";
 import { cameraControls } from "./camera/controls.js";
 import { canvas } from "./event-listeners/listeners.js";
 
+const isTouch = window.confirm('Press ok if you are using a device with a touch screen and cancel if you are are on a desktop computer!');
+
 
 let isWheeLing = false;
 let documentDeltaY = 0;
 
-canvas.addEventListener("wheel", (e) => {
-    //extracting the data to the outer scope so we can pass it to the animation loop to ensure smooth rotation;
+function isWheeling(e) {
+
     documentDeltaY = e.deltaY;
     isWheeLing = true;
-})
+
+    if (isTouch) documentDeltaY = documentDeltaY/1000;
+}
+
+if (!isTouch) {
+    canvas.addEventListener("wheel", isWheeling)
+}
+
+else {
+    window.addEventListener("scroll", isWheeling)
+}
+
+
 
 const clock = new Clock();
 let deltaTime;
@@ -40,7 +54,7 @@ const animate = () => {
             cameraMainFunction(deltaTime, documentDeltaY);
         }
 
-        if(cameraControls !== null) {
+        if (cameraControls !== null) {
 
             cameraControls.update();
         }
