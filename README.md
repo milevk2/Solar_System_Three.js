@@ -270,12 +270,12 @@ Most of the logic I copied from the site and adapted it for my purposes - functi
 
 ## Helper tools used
 
-https://www.youtube.com/watch?v=xJAfLdUgdc4 - three.js for beginners
-https://www.youtube.com/watch?v=CbUhot3K-gc&t - raycaster
-https://www.youtube.com/watch?v=K_CwmMlNmQo - geometry
-https://www.youtube.com/watch?v=bsLosbweLNE - lighting
-https://www.youtube.com/watch?v=XXzqSAt3UIw - planets pivot idea stolen from;
-https://www.youtube.com/watch?v=d0C_bxzG850&t=381s - I tried to do the sun with this, but it seems I have a lot more to study for how to combine renderers.
-Asked chat GPT for random stuff on what properties different THREE js objects have and to show me examples.
+1. https://www.youtube.com/watch?v=xJAfLdUgdc4 - three.js for beginners
+2. https://www.youtube.com/watch?v=CbUhot3K-gc&t - raycaster
+3. https://www.youtube.com/watch?v=K_CwmMlNmQo - geometry
+4. https://www.youtube.com/watch?v=bsLosbweLNE - lighting
+5. https://www.youtube.com/watch?v=XXzqSAt3UIw - planets pivot idea stolen from;
+6. https://www.youtube.com/watch?v=d0C_bxzG850&t=381s - I tried to do the sun with this, but it seems I have a lot more to study for how to combine renderers.
+7. Asked chat GPT for random stuff on what properties different THREE js objects have and to show me examples.
 
 **Thank you so much Wael Yasmina and Suboptimal Engineer Youtube channels , this project wouldn't have been possible without you!**
