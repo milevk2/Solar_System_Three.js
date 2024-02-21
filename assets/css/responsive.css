@@ -142,3 +142,23 @@
     }
 
 }
+
+@media all and (max-height:618px) {
+
+    #aboutInfo  {
+        top:0;
+    }
+}
+
+@media all and (max-height:557px) {
+
+    #aboutInfo h2{
+
+        font-size: medium;
+    }
+
+    #aboutInfo {
+        line-height: 0.9;
+        gap:0px;
+    }
+}
