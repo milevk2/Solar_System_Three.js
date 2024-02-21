@@ -15,7 +15,6 @@ import { canvas } from "./event-listeners/listeners.js";
 
 const isTouch = window.confirm('Press ok if you are using a device with a touch screen and cancel if you are are on a desktop computer!');
 
-
 let isWheeLing = false;
 let documentDeltaY = 0;
 
@@ -24,7 +23,7 @@ function isWheeling(e) {
     documentDeltaY = e.deltaY;
     isWheeLing = true;
 
-    if (isTouch) documentDeltaY = documentDeltaY/1000;
+    if (isTouch) documentDeltaY = documentDeltaY / 1000;
 }
 
 if (!isTouch) {
