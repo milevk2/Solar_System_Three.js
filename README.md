@@ -57,7 +57,7 @@ To get started with this project, follow these steps:
 
       - **js/**
         - **animation/**
-            - `cssTextAnimate.css`
+            - `cssTextAnimate.js`
             - `rotation.js`
             - `rotationMultiplier.js`
             - `VisualEffects.js`
