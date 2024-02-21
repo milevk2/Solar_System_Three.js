@@ -12,7 +12,7 @@
 - [Raycaster](#raycaster)
 - [Technologies Used](#technologies-used)
 - [To be done (In Progress)](#to-be-done-in-progress)
-
+- [Helper tools used](#helper-tools-used)
 
 **Key Features:**
 0. Prompts the user to confirm whether they are on a desktop computer or on a touchscreen device and adds a listener either to the scene for desktop or to the window for
@@ -267,3 +267,15 @@ Most of the logic I copied from the site and adapted it for my purposes - functi
 2. improve visuals on small screens;
 3. make moon drop a shadow on Earth;
 4. debug / test more;
+
+## Helper tools used
+
+https://www.youtube.com/watch?v=xJAfLdUgdc4 - three.js for beginners
+https://www.youtube.com/watch?v=CbUhot3K-gc&t - raycaster
+https://www.youtube.com/watch?v=K_CwmMlNmQo - geometry
+https://www.youtube.com/watch?v=bsLosbweLNE - lighting
+https://www.youtube.com/watch?v=XXzqSAt3UIw - planets pivot idea stolen from;
+https://www.youtube.com/watch?v=d0C_bxzG850&t=381s - I tried to do the sun with this, but it seems I have a lot more to study for how to combine renderers.
+Asked chat GPT for random stuff on what properties different THREE js objects have and to show me examples.
+
+**Thank you so much Wael Yasmina and Suboptimal Engineer Youtube channels , this project wouldn't have been possible without you!**
