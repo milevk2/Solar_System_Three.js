@@ -1,14 +1,12 @@
-import { Object3D, PerspectiveCamera, Vector3 } from "three";
+import { PerspectiveCamera } from "three";
 import { planets } from "../meshes/planets.js";
 import sun from "../meshes/sun.js";
-import scene from "../scene.js";
 import { cameraControls, initiateControls } from "./controls.js";
 import { showNameLabels } from "../animation/VisualEffects.js";
 import animateText from "../animation/cssTextAnimate.js";
 
 const [mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto] = planets;
 
-const canvas = document.querySelector('.webgl')
 //ensure that the initial state of the scroller is always the top of the viewport
 window.scroll(0, 0);
 
@@ -29,10 +27,8 @@ camera.layers.set(1);
 
 /*-------------------------CAMERA POSITION FUNCTIONALITY---------------------*/
 
-let directionX = -0.1;
-let directionY = -0.1;
-let cameraWorldPosition = new Vector3();
 
+let directionY = -0.1;
 //changes the direction of the rotation of the camera around it's pivot Y axis on every 10 secs.
 function adjustRotationY() {
 
@@ -46,26 +42,10 @@ function adjustRotationY() {
 setInterval(adjustRotationY, 10 * 1000);
 
 
-//changes the direction of the rotation of the camera around it's pivot X axis if camera position is above/below certain boundary.
-function adjustRotationX() {
-
-    camera.getWorldPosition(cameraWorldPosition);
-
-    if (cameraWorldPosition.y >= 70) {
-        directionX = 0.1;
-    }
-    else if (cameraWorldPosition.y < -70) {
-        directionX = -0.1;
-    }
-}
-
-
 function cameraAutoRotate(deltaTime) {
 
     if (cameraControls !== null) return // stop autoRotations on cameraControls initialization as cameraControls have their own rotation method;
-    adjustRotationX();
     cameraPivot.mesh.rotateY(directionY * deltaTime);
-    // cameraPivot.mesh.rotateX(directionX * deltaTime);
     camera.updateProjectionMatrix();
 }
 
