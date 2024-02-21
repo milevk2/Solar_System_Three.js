@@ -176,16 +176,16 @@ To get started with this project, follow these steps:
         this.mesh = new Mesh(new Geometry new Material) - geometry and material are passed as parameters
         this.mesh.position.set(...positionArr) - sets the position of the mesh
         this.mesh.layers.set(layer);
-        this.rotation_self = rotation_self / 1000; //rotation around self;
-        this.savedRotation_self = 0; //this will be needed for the cameraMainFunction, because we will be changing the rotation speed of the planets (as the camera will be attached to it)
+        this.rotation_self = rotation_self / 1000; - rotation around self;
+        this.savedRotation_self = 0;  - this will be needed for the cameraMainFunction, because we will be changing the rotation speed of the planets (as the camera will be attached to it)
 
 2. **Class OrbitingPlanet extends SpaceObject**:
       //creating the pivot the space object will rotate around:
         this.pivot = new Object3D();
         this.pivot.layers.set(1);
         this.pivot.add(this.mesh);
-        this.rotation_pivot = rotation_pivot / 1000; //rotation around the pivot
-        this.name_label_id = null // this will be populated with UUID of the font mesh when the font mesh is created in attach_name_labels functionality.
+        this.rotation_pivot = rotation_pivot / 1000; - rotation around the pivot
+        this.name_label_id = null - this will be populated with UUID of the font mesh when the font mesh is created in attach_name_labels functionality.
 
 3. **Class IcePlanet extends OrbitingPlanet**:
         //this is class for Neptune and Uranus
@@ -218,18 +218,18 @@ To get started with this project, follow these steps:
     let documentDeltaY = 0;
 3. **function isWheeling(e)** - gets documentDeltaY and passes it to the documentDeltaY variable in the outer scope; also changes isWheeLing = true;
 4.  const clock = new Clock();
-    let deltaTime; //self explanatory
-5. **const animate = ()** - the game/scene loop; it returns if nameLabels are not loaded (yet);
+    let deltaTime; - self explanatory
+5. **animate()** - the game/scene loop; it returns if nameLabels are not loaded (yet);
 6. if (pause.value == true) pauses the scene (on mouse click);
-    7. if (isWheeLing == true) calls cameraMainFunction(deltaTime, documentDeltaY);
-    8. if (cameraControls !== null) calls cameraControls.update(); // update controls only if orbitcontrols have been initialized
-    9.  calls cameraAutoRotate(deltaTime);
-    10. calls rotateSelf([galaxy, moon, sun, ...planets], deltaTime) to spin the passed objects around themselves;
-    11. calls rotatePivot([moon, ...planets], deltaTime);to rotate the passed objects around their pivots;
-    12. calls resetVisualEffects([moon, ...planets]); to reset the visual effects of the passed objects;
-    13. calls  pointNameLabelToCamera([...planets]) to make sure the nameLabels are always fliped to camera for readability.
-    14. sets documentDeltaY = 0;  -- zeroing out the deltaY, otherwise the cameraMainFunction will continue affecting the camera position;
-    15. sets isWheeLing = false;  -- just like the above comment - I want to be sure there won't be any side effects;
+7. if (isWheeLing == true) calls cameraMainFunction(deltaTime, documentDeltaY);
+8. if (cameraControls !== null) calls cameraControls.update(); // update controls only if orbitcontrols have been initialized
+9.  calls cameraAutoRotate(deltaTime);
+10. calls rotateSelf([galaxy, moon, sun, ...planets], deltaTime) to spin the passed objects around themselves;
+11. calls rotatePivot([moon, ...planets], deltaTime);to rotate the passed objects around their pivots;
+12. calls resetVisualEffects([moon, ...planets]); to reset the visual effects of the passed objects;
+13. calls  pointNameLabelToCamera([...planets]) to make sure the nameLabels are always fliped to camera for readability.
+14. sets documentDeltaY = 0;  -- zeroing out the deltaY, otherwise the cameraMainFunction will continue affecting the camera position;
+15. sets isWheeLing = false;  -- just like the above comment - I want to be sure there won't be any side effects;
 16. calls rayCast() in order to intercept objects;
 17. planetRenderer.render(scene, camera) - self explanatory; render is alwats last after all transformations;
 
