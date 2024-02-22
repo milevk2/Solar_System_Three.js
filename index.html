@@ -19,6 +19,16 @@
 
     <div class="main">
 
+        <div class="information fullScreen" id="prompt">
+
+            <p>
+                Choose the device you are using the application on:
+            </p>
+
+            <button id="desktop" class="greenBtn"><i class="fa-solid fa-computer"></i> Desktop (PC)</button>
+            <button id="touch-screen" class="blackBtn"><i class="fa-solid fa-mobile-screen"></i> Touch screen</button>
+            
+        </div>
         <canvas class="webgl"></canvas>
 
         <span id="mercury" class="information">
@@ -108,8 +118,8 @@
                 Now feel free to explore the solar system by yourself!
                 Use the mouse's scroll to zoom in/out, and change direction with screen sliding.
             </p>
-            <button id="confirm">Let's go!</button>
-            <button id="aboutBtn">About</button>
+            <button id="confirm" class="greenBtn">Let's go!</button>
+            <button id="aboutBtn" class="blackBtn">About</button>
         </span>
 
         <span id="aboutInfo" class="information flexColumn">
@@ -135,7 +145,7 @@
             </p>
 
             <a href="https://github.com/milevk2/Solar_System_Three.js" target="_blank">Link to GitHub</a>
-            <button id="aboutCloseBtn">Close</button>
+            <button id="aboutCloseBtn" class="greenBtn">Close</button>
         </span>
     </div>
 

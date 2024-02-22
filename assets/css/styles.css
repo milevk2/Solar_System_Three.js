@@ -1,6 +1,8 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=VT323&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
 
 * {
     margin: 0%;
@@ -28,6 +30,18 @@ h2{
     text-align: center;
 }
 
+button {
+
+    width: 15vw;
+    border-radius: 15px;
+    padding: 0.8em;
+    font-weight: bold;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.7em;
+    min-width: 130px;
+    cursor: pointer;
+}
+
 .main {
     display: flex;
     align-items: center;
@@ -44,7 +58,9 @@ h2{
 
 .information {
 
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     letter-spacing: 0.5em;
     font-family: "Orbitron", sans-serif;
     font-optical-sizing: auto;
@@ -75,16 +91,19 @@ h2{
     margin-bottom: 0.2em;
 }
 
-.information button {
+ button.greenBtn {
 
     background-color: greenyellow;
     color: black;
-    border-radius: 15px;
-    padding: 1em;
-    font-weight: bold;
-    font-family: "Orbitron", sans-serif;
    
 }
+
+button.blackBtn {
+
+    background-color: rgba(0,0,0,0);
+    color: greenyellow
+}
+
 
 .animatedText {
 
@@ -111,11 +130,7 @@ h2{
     animation: 2s anim-popoutin ease;
 }
 
-#aboutBtn {
 
-    background-color: rgba(0,0,0,0);
-    color: greenyellow
-}
 
 .flexColumn {
 
@@ -127,8 +142,7 @@ h2{
 }
 
 #freeLook {
-
-    
+ 
     width: 50vw;
     left:30%;
     top:40%
@@ -146,11 +160,9 @@ h2{
 #aboutInfo h2 {
 
     font-size: 1.5em;
-
 }
 
 #aboutInfo  a {
-
 
     font-weight: bolder;
     color:antiquewhite;
@@ -159,6 +171,22 @@ h2{
     border-radius:15px;
 }
 
+.fullScreen {
+
+    visibility: visible;
+    opacity: 80%;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    font-size: 1em;
+    text-align: center;
+}
 
 @keyframes anim-lineUp {
     0% {

@@ -11,30 +11,7 @@ import { pointNameLabelToCamera, resetVisualEffects } from "./animation/VisualEf
 import { rotateSelf, rotatePivot } from "./animation/rotation.js";
 import { Clock } from "three";
 import { cameraControls } from "./camera/controls.js";
-import { canvas } from "./event-listeners/listeners.js";
-
-const isTouch = window.confirm('Press ok if you are using a device with a touch screen and cancel if you are are on a desktop computer!');
-
-let isWheeLing = false;
-let documentDeltaY = 0;
-
-function isWheeling(e) {
-
-    documentDeltaY = e.deltaY;
-    isWheeLing = true;
-
-    if (isTouch) documentDeltaY = documentDeltaY / 1000;
-}
-
-if (!isTouch) {
-    canvas.addEventListener("wheel", isWheeling)
-}
-
-else {
-    window.addEventListener("scroll", isWheeling)
-}
-
-
+import { wheelEventData } from "./event-listeners/listeners.js";
 
 const clock = new Clock();
 let deltaTime;
@@ -48,9 +25,9 @@ const animate = () => {
 
     if (pause.value == false) {
 
-        if (isWheeLing) {
+        if (wheelEventData.isWheeLing) {
 
-            cameraMainFunction(deltaTime, documentDeltaY);
+            cameraMainFunction(deltaTime, wheelEventData.documentDeltaY);
         }
 
         if (cameraControls !== null) {
@@ -63,8 +40,8 @@ const animate = () => {
         rotatePivot([moon, ...planets], deltaTime);
         resetVisualEffects([moon, ...planets]);
         pointNameLabelToCamera([...planets]);     //it is the planets nameLabels we are making look at the camera;
-        documentDeltaY = 0;             //zeroing out the deltaY, otherwise the cameraMainFunction will continue affecting the camera position
-        isWheeLing = false;             //just like the below comment - I want to be sure there won't be any side effects;
+        wheelEventData.documentDeltaY = 0;             //zeroing out the deltaY, otherwise the cameraMainFunction will continue affecting the camera position
+        wheelEventData.isWheeLing = false;             //just like the below comment - I want to be sure there won't be any side effects;
     }
     rayCast();
     planetRenderer.render(scene, camera);

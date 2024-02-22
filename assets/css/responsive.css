@@ -120,14 +120,14 @@
 
 @media all and (max-width: 287px) {
 
-    #aboutInfo h2 {
+    #aboutInfo{
 
-        line-height: 0.8;
-    }
-
-    #aboutInfo p {
-
-        line-height: 0.8;
+        text-align: left;
+       
+       align-items: center;
+       height: 90vh;
+       gap:10px;
+       overflow-y: scroll;
     }
 
     .information {
